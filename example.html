@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Eloquent Examples Chapter 3</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="assets/css/style.css" type="text/css"> -->
+  </head>
+  <body>
+    <h1>Eloquent Examples Chapter 3</h1>
+    <h4>open the inspector</h4>
+
+<script type="text/javascript">
+//_________________Example 1______________________________
+// Your code here.
+var x = "outside";
+
+var f1 = function() {
+  var x = "inside f1";
+};
+f1();
+console.log(x);
+// → outside
+
+var f2 = function() {
+  x = "inside f2";
+};
+f2();
+console.log(x);
+// → inside f2
+//_________________Example 2______________________________
+
+
+var landscape = function() {
+  var result = "";
+  var flat = function(size) {
+    for (var count = 0; count < size; count++)
+      result += "_";
+  };
+  var mountain = function(size) {
+    result += "/";
+    for (var count = 0; count < size; count++)
+      result += "'";
+    result += "\\";
+  };
+
+  flat(3);
+  mountain(4);
+  flat(6);
+  mountain(1);
+  flat(1);
+  return result;
+};
+
+console.log(landscape());
+// → ___/''''\______/'\_
+
+
+function wrapValue(n) {
+  var localVariable = n;
+  return function() { return localVariable; };
+}
+
+var wrap1 = wrapValue(1);
+var wrap2 = wrapValue(2);
+console.log(wrap1());
+// → 1
+console.log(wrap2());
+// → 2
+
+</script>
+  </body>
+</html>
